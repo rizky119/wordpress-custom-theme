@@ -1,0 +1,172 @@
+$primaryColor: #fff;
+$secondaryColor:#043b4c;
+$tertiaryColor: #fea55c;
+$quarternaryColor: #e8cea1;
+
+$primaryFont:'Roboto', sans-serif;
+$secondaryFont:'Rozha One', serif;
+
+//56.25em
+//70.25em
+
+body {
+	background: $primaryColor;
+	font-family: $primaryFont;
+	color: $primaryColor;
+	&.page {
+		margin: 0;
+	}
+}
+
+.site {
+	max-width: 87.5em;
+	margin: 0 auto;
+	@media (min-width: 56.25em){
+		padding: 4.05em;
+	}
+}
+
+//root e m = rem=16px.its the perfect size for web browsing. so 2rem=32px. its use for responsive page. forllow the px from sketch design.
+.top-content-container {
+	padding: 1.375em;
+	@media (min-width: 56.25em){
+		display: flex;
+	}
+}
+
+// breakpoint for max width is 900px/16=56.25em or min-width 600px or 37.5em
+//code for hamburger menu. px size refer to sketch.
+//sudo element to add &::before or &::after element like adding border line, menu name, to label an items in table. 
+nav.main-navigation {
+	.menu-toggle {
+		background: transparent;
+		width: 37px;
+		height: 27px;
+		border: 3px solid $primaryColor;
+		border-left: 0;
+		border-right: 0;
+		border-radius: 0;
+		position: relative;
+		cursor: pointer;
+		@media (min-width: 37.5em){
+			display: block;
+		}
+		@media (min-width: 56.25em){
+			display: none;
+		}
+		&::before {
+			content: '';
+			width: 37px;
+			border-top: 3px solid $primaryColor;
+			position: absolute;
+			left: 0;
+			top: 9px;
+		}
+	}
+	//this overwrite the other media queries on the menu.toggle. SCSS saved a lot of work, to code 8 line vs 20 line. 
+	ul {
+		background: $primaryColor;
+		@media (min-width: 37.5em){
+			display: none;
+		}
+		@media (min-width: 56.25em){
+			background: transparent;
+			display: block;
+			padding-top: 8em;
+			border-left: 1px solid $primaryColor;
+			margin-top: 3.5em;
+		}
+	}
+
+	li {
+		float: none;
+		@media (min-width: 56.25em){
+			&.current-menu-item a{
+				display: none;
+			}
+		}
+	}
+		
+	a { 
+		padding: 1em;
+		border-bottom: 1px solid $tertiaryColor;
+		font-size: 1.3rem;
+		color: $secondaryColor;
+		@media (min-width: 56.25em){
+			padding: .25em .6em;
+			border: 0;
+			font-size: 1.5rem;
+			font-weight: 100;
+			line-height: 1rem;
+			text-transform: capitalize;
+			color: $primaryColor;
+			transition: ease .3s all;
+			&:hover {
+				color: $quarternaryColor;
+				transform: translateX(1em);
+			}
+		}
+	}
+}
+
+.entry-title {
+	margin-top: 1.9em;
+	font-size: 1.5rem;
+	font-weight: 100;
+	text-align: right;
+	color: $quarternaryColor;
+}
+
+.site-content {
+	position: relative;
+}
+
+article {
+	.entry-content {
+		padding: 0 1em 3em 0;
+	}
+	@media (min-width: 56.25em){
+		display: flex;
+		.entry-title {
+			transform: rotate(270deg);
+		}
+	}
+}
+/*for width and height size refer to sketch px size ad divided by 16 to convert to em */
+.corner-line {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 4.7em;
+	height: 12.3em;
+	border-right: 1px solid $primaryColor;
+	border-bottom: 1px solid $primaryColor;
+}
+
+// for edit button in admin view, doesnt effect the user view
+.entry-footer a {
+    background: #fff;
+    margin: 0.5em;
+    padding: 0.5em;
+    text-decoration: none;
+    text-align: center;
+}
+
+footer {
+	background: $secondaryColor;
+	padding: 2em 1.375em;
+	font-family: $secondaryFont;
+	font-size: .875em;
+	text-align: center
+}
+
+
+
+
+
+
+
+
+
+
+
